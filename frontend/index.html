@@ -22,9 +22,16 @@
 
                     var data;
                     var hora;
+                    var min;
 
                     axios.get('https://3001-pink-python-f6p3x96j.ws-us04.gitpod.io/?latitude='+latitude+'&longitude='+latitude)
-                    .then(response => criaListaDinamica(response.data))
+                    .then(response => {
+                        latitude = response.data[0],
+                        longitude = response.data[1],
+                        hora = response.data[2],
+                        min = response.data[3]
+                        hora += min
+                    })
                     .catch(error => console.log(error))
                     
                     
