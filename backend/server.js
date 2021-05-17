@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.use(cors()); //segurança de dominio
 
-app.post('/',(req, res)=>{
+app.get('/',(req, res)=>{
     const hora = new Date().getHours();
     const min = new Date().getMinutes();
     const {latitude, longitude} = req.query;

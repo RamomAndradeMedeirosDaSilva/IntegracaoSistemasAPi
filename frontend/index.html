@@ -4,8 +4,11 @@
 
     </head>
         <body>
-            <h1 id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</h1>
+            <h1 id="demo">Acesse sua localização clicando no botão a seguir!</h1>
             <button onclick="getLocationHour()">Onde estou?</button>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
             <script>
                 var x=document.getElementById("demo");
                 function getLocationHour(){
@@ -24,18 +27,20 @@
                     var hora;
                     var min;
 
-                    axios.get('https://3001-pink-python-f6p3x96j.ws-us04.gitpod.io/?latitude='+latitude+'&longitude='+latitude)
-                    .then(response => {
-                        latitude = response.data[0],
-                        longitude = response.data[1],
-                        hora = response.data[2],
-                        min = response.data[3]
-                        hora += min
-                    })
-                    .catch(error => console.log(error))
-                    
-                    
-                    x.innerHTML = JSON.stringify({"Latitude":position.coords.latitude, "Longitude":position.coords.longitude, "Hora":hora}); 
+                    $.ajax({
+                    method: "GET",
+                    crossDomain: true,
+                    url: 'https://3001-pink-python-f6p3x96j.ws-us04.gitpod.io/?latitude='+latitude+'&longitude='+longitude,             
+                    success: function (data) {
+                        console.log(JSON.stringify(data));
+                        x.innerHTML= "Latitude: "+data.latitude
+                        +"\nLongitude: "+data.longitude
+                        +"\nHora: "+(data.hora - 3) + ":" + data.min;
+                    },
+                    error: function (xhr, status) {
+                        console.log("erro")
+                    }
+                })
                 }
                 
             </script>
