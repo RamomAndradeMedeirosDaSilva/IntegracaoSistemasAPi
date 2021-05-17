@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" type="text/css" href="estilo.css">
     </head>
         <body>
-            <h1 id="demo">Acesse sua localização clicando no botão a seguir!</h1>
-            <button onclick="getLocationHour()">Onde estou?</button>
+            <h1 id="demo" style="color:#4CAF50;padding:80px;background:black;font-size:50px;">Acesse sua localização clicando no botão a seguir!</h1>
+            <button onclick="getLocationHour()" style="color:#131313;padding:50px;background:#0CAF50;font-size: 35px;">Onde estou?</button>
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -34,15 +34,14 @@
                     success: function (data) {
                         console.log(JSON.stringify(data));
                         x.innerHTML= "Latitude: "+data.latitude
-                        +"\nLongitude: "+data.longitude
-                        +"\nHora: "+(data.hora - 3) + ":" + data.min;
+                        +"<br><br><br>Longitude: "+data.longitude
+                        +"<br><br><br>Hora: "+(data.hora - 3) + ":" + data.min;
                     },
                     error: function (xhr, status) {
                         console.log("erro")
                     }
                 })
                 }
-                
             </script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
         </body>

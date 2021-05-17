@@ -1,0 +1,22 @@
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+body{
+    font-family: "Lucida Console", "Courier New", monospace; 
+    color: red;/*#4CAF50;*/
+    text-align: center;
+    margin:0;
+    padding:0;
+    background:#cccccc;
+    text-align:center;
+}
+h1{
+    background: black;
+}
